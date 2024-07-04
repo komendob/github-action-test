@@ -3,6 +3,10 @@ name: Scheduled destroyer
 on:
   schedule:
     - cron: '* * * * *'
+  workflow_dispatch:
+  push:
+    branches:
+      - 'main'
 
 jobs:
   destroy-branch:
