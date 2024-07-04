@@ -6,7 +6,7 @@ on:
 
 jobs:
   destroy-branch:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     environment: develeopment
     steps:
       - name: Checkout repository
