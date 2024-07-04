@@ -18,6 +18,7 @@ jobs:
         with:
           token: ${{ secrets.REPO_PAT }}
           fetch-depth: 0
+          ref: deploy
 
       - name: Git actions
         run: |
