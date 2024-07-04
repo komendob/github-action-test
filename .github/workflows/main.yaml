@@ -18,6 +18,8 @@ jobs:
           token: ${{ secrets.REPO_PAT }}
       - name: Git actions
         run: |
+          ls -la
+          git branch
           git config user.name github-actions
           git config user.email github-actions@github.com
           git branch -d deploy
