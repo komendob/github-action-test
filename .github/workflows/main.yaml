@@ -26,7 +26,6 @@ jobs:
           git branch
           git config user.name github-actions
           git config user.email github-actions@github.com
-          git branch -d deploy
           git push origin --delete deploy
           git checkout -b deploy
           git push -u origin deploy
