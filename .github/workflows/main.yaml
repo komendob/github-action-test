@@ -1,0 +1,26 @@
+name: Scheduled destroyer
+
+on:
+  schedule:
+    - cron: '* * * * * *'
+
+jobs:
+  destroy-branch:
+    runs-on: ubuntu-latest
+    environment: develeopment
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          ref: ${{ github.base_ref }}
+          # Disabling shallow clone is recommended for improving relevancy of reporting
+          fetch-depth: 0
+          token: ${{ secrets.REPO_PAT }}
+      - name: Git actions
+        run: |
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git branch -d deploy
+          git push origin --delete deploy
+          git branch -b deploy
+          git push -u origin deploy
