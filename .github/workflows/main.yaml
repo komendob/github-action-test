@@ -2,7 +2,7 @@ name: Scheduled destroyer
 
 on:
   schedule:
-    - cron: '* * * * * *'
+    - cron: '* * * * *'
 
 jobs:
   destroy-branch:
@@ -12,7 +12,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
         with:
-          ref: ${{ github.base_ref }}
+          ref: main
           # Disabling shallow clone is recommended for improving relevancy of reporting
           fetch-depth: 0
           token: ${{ secrets.REPO_PAT }}
